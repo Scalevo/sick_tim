@@ -55,13 +55,13 @@ SickTimCommon::SickTimCommon(AbstractParser* parser) :
   if (publish_datagram_)
     datagram_pub_ = nh_.advertise<std_msgs::String>("datagram", 1000);
 
-  // use custom topic for each sensor
-  // std::string scanname("scan");
-  // pn.getParam("scanname",scanname);
+  // use custom node for each sensor
+  std::string scanname("scan");
+  pn.getParam("scanname",scanname);
   
   // scan publisher
-  // pub_ = nh_.advertise<sensor_msgs::LaserScan>(scanname, 1000);
-  pub_ = nh_.advertise<sensor_msgs::LaserScan>("scan", 1000);
+  pub_ = nh_.advertise<sensor_msgs::LaserScan>(scanname, 1000);
+  //pub_ = nh_.advertise<sensor_msgs::LaserScan>("scan", 1000);
 
   diagnostics_.setHardwareID("none");   // set from device after connection
   diagnosticPub_ = new diagnostic_updater::DiagnosedPublisher<sensor_msgs::LaserScan>(pub_, diagnostics_,
