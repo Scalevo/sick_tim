@@ -55,7 +55,7 @@
   <node pkg="tf" type="static_transform_publisher" name="link2_broadcaster" args="-.31 0 0 0 1.57 3.14 laser_mount_link laser_2 100" />
   -->
 
-  <include file="$(find scalaser)/launch/transform.launch" />
+  <include file="$(find scalaser)/launch/transform_2.launch" />
 
 </launch>
 
